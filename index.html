@@ -677,12 +677,16 @@
             audioEnabled = !audioEnabled;
             const status = document.getElementById('musicStatusText');
             const icon = document.getElementById('musicIcon');
+            const bgMusic = document.getElementById('bgMusic');
+
             if (audioEnabled) {
-                status.innerText = "AUDIO: ON";
-                icon.className = "fas fa-volume-up text-tactical-gold";
+                if (status) status.innerText = "AUDIO: ON";
+                if (icon) icon.className = "fas fa-volume-up text-amber-400";
+                if (bgMusic) bgMusic.muted = false;
             } else {
-                status.innerText = "AUDIO: OFF";
-                icon.className = "fas fa-volume-xmark text-slate-500";
+                if (status) status.innerText = "AUDIO: OFF";
+                if (icon) icon.className = "fas fa-volume-xmark text-slate-500";
+                if (bgMusic) bgMusic.muted = true;
             }
         }
 
